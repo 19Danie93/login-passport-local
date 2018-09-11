@@ -1,0 +1,19 @@
+<%- layout ('main.ejs') %>
+<div class="col-md-4 offset-md-4">
+        <div class="card mt-4">
+            <div class="card-header text-center ">
+                <h3>SIGNIN</h3>
+            </div>
+            <div class="card-body">
+                <form action="/signin" method="POST">
+                    <div class="form-group">
+                        <input type="email" class="form-control"  name="email" id="email" placeholder="Email " required/>
+                    </div>
+                    <div class="form-group">
+                        <input type="password" class="form-control"  name="password" id="password" placeholder="Password " required/>
+                    </div>
+                    <button class="btn btn-block btn-primary" type="submit">Login</button>
+                </form>
+            </div>
+        </div>
+    </div>

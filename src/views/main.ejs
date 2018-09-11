@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Login con PASSPORT</title>
+    <link rel="stylesheet" href="https://bootswatch.com/4/lux/bootstrap.min.css">
+
+    <script src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js"></script>
+    <script src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+</head>
+<body>
+   
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="/">Login Passport</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse navbar-left" id="navbarText">
+            <ul class="navbar-nav ml-auto">
+                <% if(user) {%>
+                    <li <% if (page_name === 'home') { %> class="nav-item active" <% } else { %> class="nav-item" <% } %> >
+                        <a class="nav-link" href="/home" onclick="">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/logout">Logout</a>
+                    </li>
+                <% } else { %>
+                    <li <% if (page_name === 'signin') { %> class="nav-item active" <% } else { %> class="nav-item" <% } %> >
+                        <a class="nav-link" href="/signin">Signin</a>
+                    </li>
+                    <li <% if (page_name === 'signup') { %> class="nav-item active" <% } else { %> class="nav-item" <% } %>>
+                        <a class="nav-link" href="/signup">Signup</a>
+                    </li>
+                <% } %>
+            </ul>
+            
+        </div>
+        </nav>
+    <div class="container">
+   
+            <%- body -%>
+
+        <div class="col-md-4 offset-md-4 mt-2">
+            <% if(errorLogin.length >0) { %>
+                <div class="alert alert-danger"><%= errorLogin %></div>
+            <% } %>
+            <% if(errorPass.length >0) { %>
+                <div class="alert alert-danger"><%= errorPass %></div>
+            <% } %>
+            <% if(errorRegistro.length >0) { %>
+                <div class="alert alert-danger"><%= errorRegistro %></div>
+            <% } %>
+        </div>
+        
+        
+    </div>
+
+</body>
+<script>
+    $(document).ready(function(){
+        window.setTimeout(function() {
+            $(".alert").fadeTo(500, 0).slideUp(500, function(){
+                $(this).remove(); 
+            });
+        }, 2000);
+
+        $('#sidebarCollapse').on('click', function () {
+                $('#sidebar').toggleClass('active');
+            });
+        
+    });
+   
+</script>
+</html>

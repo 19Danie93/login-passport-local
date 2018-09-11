@@ -1,0 +1,13 @@
+<%- layout ('main.ejs') %>
+<div class="card  mt-4">
+    <div class="card-header text-center">
+        <h3>Informacion</h3>
+    </div>
+    <div class="card-body">
+        <div class="container">
+            <h1><%= user.email%></h1>
+            <p><%= user.password%></p>
+            <p><%= user._id%></p>
+        </div>
+    </div>
+</div>
